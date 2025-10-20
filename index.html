@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Metadatos -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mi Portafolio - Proyecto 3</title>
+
+  <!-- Google Fonts (para cumplir requisito de tipografía) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header class="site-header">
+    <nav class="navbar container">
+      <div class="brand">
+        <h1 class="logo">Mi Portafolio</h1>
+      </div>
+
+      <!-- Botón menú (móvil) -->
+      <button id="menu-btn" class="menu-btn" aria-label="Abrir menú">☰</button>
+
+      <!-- Enlaces de navegación -->
+      <ul class="nav-links" id="nav-links" role="menubar">
+        <li role="none"><a role="menuitem" href="#inicio">Inicio</a></li>
+        <li role="none"><a role="menuitem" href="#sobre-mi">Sobre mí</a></li>
+        <li role="none"><a role="menuitem" href="#proyectos">Proyectos</a></li>
+        <li role="none"><a role="menuitem" href="#contacto">Contacto</a></li>
+      </ul>
+
+      <!-- Botón modo oscuro -->
+      <button id="modo-btn" class="modo-btn" aria-pressed="false" aria-label="Activar modo oscuro">🌙</button>
+    </nav>
+  </header>
+
+  <!-- Hero / Inicio -->
+  <main>
+    <section id="inicio" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h2>¡Hola! Soy Alejandro</h2>
+          <p class="lead">Desarrollador web en formación. Construyo interfaces limpias y responsivas.</p>
+          <a href="#proyectos" class="btn">Ver proyectos</a>
+        </div>
+
+        <!-- Avatar/imagen representativa (puedes sustituir src por tu foto) -->
+        <div class="hero-avatar" aria-hidden="true">
+          <img src="https://via.placeholder.com/220" alt="Avatar" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre mí -->
+    <section id="sobre-mi" class="sobre container">
+      <h2>Sobre mí</h2>
+      <p>Me apasiona el desarrollo web y la programación. Actualmente estudio HTML, CSS y JavaScript. Me interesa construir proyectos prácticos y aprender mejores prácticas de accesibilidad y diseño responsivo.</p>
+
+      <!-- Habilidades (mockup común en portafolio) -->
+      <div class="habilidades">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS (Flexbox / Media queries)</div>
+        <div class="skill">JavaScript básico</div>
+        <div class="skill">Git / GitHub</div>
+      </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="proyectos" class="proyectos container">
+      <h2>Proyectos</h2>
+      <p class="subtle">Aquí algunos proyectos de práctica (clic para ver detalles).</p>
+
+      <div class="grid-proyectos">
+        <article class="proyecto">
+          <h3>Proyecto 1</h3>
+          <p>Descripción breve del proyecto. Tecnologías: HTML, CSS.</p>
+          <a class="proyecto-link" href="#" aria-label="Ver Proyecto 1">Ver</a>
+        </article>
+
+        <article class="proyecto">
+          <h3>Proyecto 2</h3>
+          <p>Descripción breve del proyecto. Tecnologías: HTML, CSS, JS.</p>
+          <a class="proyecto-link" href="#" aria-label="Ver Proyecto 2">Ver</a>
+        </article>
+
+        <article class="proyecto">
+          <h3>Proyecto 3</h3>
+          <p>Descripción breve del proyecto. Diseño responsivo y formulario.</p>
+          <a class="proyecto-link" href="#" aria-label="Ver Proyecto 3">Ver</a>
+        </article>
+
+        <article class="proyecto">
+          <h3>Proyecto 4</h3>
+          <p>Descripción breve del proyecto. Mejoras de accesibilidad y UX.</p>
+          <a class="proyecto-link" href="#" aria-label="Ver Proyecto 4">Ver</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contacto container">
+      <h2>Contacto</h2>
+      <p class="subtle">¿Tienes un proyecto o quieres colaborar? Escríbeme.</p>
+
+      <!-- Formulario estilizado (requisito del proyecto) -->
+      <form class="contact-form" action="#" method="post" novalidate>
+        <div class="field-row">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required>
+        </div>
+
+        <div class="field-row">
+          <label for="email">Correo electrónico</label>
+          <input id="email" name="email" type="email" placeholder="tucorreo@ejemplo.com" required>
+        </div>
+
+        <div class="field-row">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje" required></textarea>
+        </div>
+
+        <div class="field-row">
+          <button type="submit" class="btn">Enviar mensaje</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Alejandro — Todos los derechos reservados.</p>
+      <div class="socials" aria-hidden="true">
+        <!-- Iconos placeholder -->
+        <a href="#" aria-label="GitHub">GitHub</a>
+        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: modo oscuro, menú móvil y fecha del footer -->
+  <script>
+    // Actualizar año en el footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // MODO OSCURO: alterna clase 'dark' en body
+    const modoBtn = document.getElementById('modo-btn');
+    modoBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      // Actualiza aria-pressed para accesibilidad
+      const pressed = document.body.classList.contains('dark');
+      modoBtn.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+      // opcional: cambiar icono
+      modoBtn.textContent = pressed ? '☀️' : '🌙';
+    });
+
+    // MENÚ MÓVIL: mostrar/ocultar nav en pantallas pequeñas
+    const menuBtn = document.getElementById('menu-btn');
+    const navLinks = document.getElementById('nav-links');
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
+    // Cerrar menú al clicar un enlace (mejora UX en móvil)
+    navLinks.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A' && navLinks.classList.contains('show')) {
+        navLinks.classList.remove('show');
+      }
+    });
+  </script>
+</body>
+</html>
